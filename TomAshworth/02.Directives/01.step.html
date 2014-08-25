@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Angular Derectives</title>
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 16px/1.5 sans-serif;
+            color: #222;
+            margin: 5em;
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+    <label>Name:</label> <input type="text" ng-model="UserName">
+</div>
+
+<div>
+    <input type="checkbox" ng-model="ViewUserName"><label>Show?</label>
+</div>
+
+<div ng-show="ViewUserName">
+    Hello, {{UserName || "world"}}
+</div>
+
+<script type="application/javascript">
+
+
+
+</script>
+</body>
+</html>

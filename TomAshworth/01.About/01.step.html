@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Angular Start</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+</head>
+<body>
+    <div>
+        <label>Message:</label>
+        <input type="text"
+               ng-model="YourMessage"
+               placeholder="Enter a message here">
+
+        <label>Name:</label>
+        <input type="text"
+               ng-model="YourName"
+               placeholder="Enter a name here">
+        <hr>
+        <h1>Hello {{YourMessage}} {{YourName}}</h1>
+    </div>
+</body>
+</html>

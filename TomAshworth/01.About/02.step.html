@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Angular - Controller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="Ctrl1">
+    <input type="text" ng-model="name">
+
+    <h1>{{name}}</h1>
+
+    <h1>{{age * 2}}</h1>
+</div>
+
+<div ng-controller="Ctrl2">
+    <input type="text" ng-model="name">
+
+    <h1>{{name}}</h1>
+
+    <h1>{{age * 2}}</h1>
+</div>
+
+<script type="application/javascript">
+    /**
+     * Controller ng-controller="Ctrl1"
+     * @param $scope
+     * @constructor
+     */
+    var Ctrl1 = function ($scope) {
+        $scope.name = "Judzhin Miles";
+        $scope.age = 18;
+    }
+
+    /**
+     * Controller ng-controller="Ctrl2"
+     * @param $scope
+     * @constructor
+     */
+    var Ctrl2 = function ($scope) {
+        $scope.name = "Judzhin Miles";
+        $scope.age = 20;
+        $scope.$watch("name", function() {
+            console.log("Edit Name");
+        });
+    }
+</script>
+
+</body>
+</html>
