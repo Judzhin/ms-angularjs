@@ -1,0 +1,9 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px/1.5 sans-serif;
+    color: #222;
+    margin: 5em;
+}

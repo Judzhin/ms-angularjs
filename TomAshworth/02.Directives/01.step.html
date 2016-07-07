@@ -4,19 +4,9 @@
     <meta charset="utf-8">
     <title>Angular Derectives</title>
     <meta name="viewport" content="width=device-width">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
-    <style type="text/css">
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font: 16px/1.5 sans-serif;
-            color: #222;
-            margin: 5em;
-        }
-
-    </style>
+    <script src="../angular.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <link rel="stylesheet" href="../main.css">
 </head>
 <body>
 
@@ -25,15 +15,19 @@
 </div>
 
 <div>
-    <input type="checkbox" ng-model="ViewUserName"><label>Show?</label>
+    <input name="show" type="checkbox" ng-model="ToggleShow"> <label>Show?</label>
+    <input name="hide" type="checkbox" ng-model="ToggleHide"> <label>Hide?</label>
 </div>
 
-<div ng-show="ViewUserName">
+<div ng-show="ToggleShow">
+    Hello, {{UserName || "world"}}
+</div>
+
+<div ng-hide="ToggleHide">
     Hello, {{UserName || "world"}}
 </div>
 
 <script type="application/javascript">
-
 
 
 </script>

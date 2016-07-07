@@ -2,32 +2,82 @@
 <html ng-app>
 <head>
     <meta charset="utf-8">
-    <title>Angular Derectives</title>
+    <title>Angular Directives</title>
     <meta name="viewport" content="width=device-width">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
-    <style type="text/css">
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font: 16px/1.5 sans-serif;
-            color: #222;
-            margin: 5em;
-        }
-
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.29/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../main.css">
 </head>
 <body>
 
-<div ng-controller="List"></div>
+<input type="search" ng-model="SearchModel" class="form-control">
 
-<script type="application/javascript">
+<hr>
 
-    var List = function($scope) {
+<div ng-controller="ListCtrl">
+    <ul>
+        <li ng-repeat="person in people | filter:SearchModel">
+            {{person.name}}, {{person.age}}
+            <small ng-click="onRemove($index);" class="glyphicon glyphicon-trash"></small>
+            <small ng-show="$first">first</small>
+            <small ng-show="$middle">middle</small>
+            <small ng-show="$last">last</small>
+        </li>
+    </ul>
 
+    <span>There are {{people.length}} people in the list.</span>
+
+    <div>
+        <label>Name:</label>
+        <input type="text" ng-model="UserName" class="form-control">
+        <label>Age:</label>
+        <input type="number" ng-model="UserAge" class="form-control">
+        <hr>
+        <button class="btn btn-default" ng-click="onClick()">Add</button>
+    </div>
+</div>
+
+<script>
+    /**
+     *
+     * @param $scope
+     * @constructor
+     */
+    var ListCtrl = function ($scope) {
+        $scope.people = [{
+            name: 'Tom',
+            age: 20
+        }, {
+            name: 'Judzhin',
+            age: 21
+        }, {
+            name: 'Dan',
+            age: 22
+        }, {
+            name: 'David',
+            age: 23
+        }, {
+            name: 'Peter',
+            age: 24
+        }];
+
+        $scope.onClick = function () {
+            $scope.people.push({
+                name: $scope.UserName,
+                age: $scope.UserAge
+            });
+            $scope.UserName = '';
+            $scope.UserAge = '';
+        };
+
+        /**
+         *
+         * @param index
+         */
+        $scope.onRemove = function (index) {
+            $scope.people.splice(index, 1);
+        }
     }
-
 </script>
 </body>
 </html>

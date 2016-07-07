@@ -2,7 +2,9 @@
 <html ng-app>
 <head>
     <title>Angular - Controller</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../main.css">
 </head>
 <body>
 
@@ -18,7 +20,6 @@
     <input type="text" ng-model="name">
 
     <h1>{{name}}</h1>
-
     <h1>{{age * 2}}</h1>
 </div>
 
@@ -31,7 +32,7 @@
     var Ctrl1 = function ($scope) {
         $scope.name = "Judzhin Miles";
         $scope.age = 18;
-    }
+    };
 
     /**
      * Controller ng-controller="Ctrl2"
@@ -41,10 +42,10 @@
     var Ctrl2 = function ($scope) {
         $scope.name = "Judzhin Miles";
         $scope.age = 20;
-        $scope.$watch("name", function() {
+        $scope.$watch("name", function () {
             console.log("Edit Name");
         });
-    }
+    };
 </script>
 
 </body>
